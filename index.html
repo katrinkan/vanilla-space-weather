@@ -23,21 +23,26 @@
     <div class="container">
       <div class="space-weather-wrapper">
         <div class="space-weather">
+            <div class="overview">
           <h1>Barcelona</h1>
           <ul>
             <li>Sunday 10:00</li>
             <li>Partly cloudy</li>
+            </div>
           </ul>
           <div class="row">
             <div class="col-6">
-              <ul>
-                <li>
+                <div class="clearfix weather-temperature">
+             
                   <img
                     src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                     alt="Partly cloudy"
-                  />11 °C | °F
-                </li>
-              </ul>
+                    class="float-left"
+                  />
+                 
+                  <strong>11</strong><span class="units">°C | <a href="#">°F</a></span>
+                
+              </div>
             </div>
             <div class="col-6">
               <ul>
@@ -45,11 +50,16 @@
                 <li>Humidity: 73%</li>
                 <li>Wind: 2 km/h</li>
               </ul>
+              
             </div>
           </div>
         </div>
         <small
-          ><a href="https://github.com/katrinkan/vanilla-space-weather">Code</a>
+          ><a
+            href="https://github.com/katrinkan/vanilla-space-weather"
+            target="_blank"
+            >Code</a
+          >
           with ❤️ by Katrin Kanape</small
         >
       </div>
