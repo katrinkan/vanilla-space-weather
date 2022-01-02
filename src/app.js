@@ -36,7 +36,6 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  console.log(response.data);
 }
 
 let apiKey = "c6cc476a27f0a0763f5b1cf675c13355";
