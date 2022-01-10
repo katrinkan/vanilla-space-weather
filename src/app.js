@@ -64,7 +64,32 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function dispalyHotTheme() {
+  document.getElementById("themes-weather").style.backgroundColor = "#700000";
+  document.getElementById("themes-weather").style.border = "#700000";
+  document.getElementById("city").style.color = "#D1F1A8";
+  document.getElementById("last-updated").style.color = "#EABCFF";
+  document.getElementById("description").style.color = "#EABCFF";
+  document.getElementById("humidity-li").style.color = "#EABCFF";
+  document.getElementById("wind-li").style.color = "#EABCFF";
+  document.getElementById("temperature").style.color = "#FFC48F";
+  document.getElementById("units").style.color = "#FFC48F";
+  document.getElementById("forecast").style.color = "#CF908F";
+}
+function dispalyColdTheme() {
+  document.getElementById("themes-weather").style.backgroundColor = "#003950";
+  document.getElementById("themes-weather").style.border = "#002B3F";
+  document.getElementById("city").style.color = "#FFAAAA";
+  document.getElementById("last-updated").style.color = "#60FAFF";
+  document.getElementById("description").style.color = "#60FAFF";
+  document.getElementById("humidity-li").style.color = "#60FAFF";
+  document.getElementById("wind-li").style.color = "#60FAFF";
+  document.getElementById("temperature").style.color = "#B8BCF0";
+  document.getElementById("units").style.color = "#B8BCF0";
+  document.getElementById("forecast").style.color = "#67AE9E";
+}
 function displayTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -85,6 +110,14 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   getForecast(response.data.coord);
+
+  if (celciusTemperature > 25) {
+    dispalyHotTheme();
+  } else if (celciusTemperature < 10) {
+    dispalyColdTheme();
+  } else {
+    return false;
+  }
 }
 function search(city) {
   let apiKey = "c6cc476a27f0a0763f5b1cf675c13355";
