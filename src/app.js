@@ -104,7 +104,6 @@ function dispalyDraculaTheme() {
   document.getElementById("forecast").style.color = "#70b7c8";
 }
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
