@@ -24,7 +24,7 @@
     <div class="container">
       <div class="themes-weather-wrapper">
         <div class="themes-weather" id="themes-weather">
-            <form id="search-form" class="mb-3">
+            <form id="search-form" class="mb-3 search">
                 <div class="row">
                 <div class="col-9">
                     <input type="search" placeholder="Type a city..." class="form-control" id="city-input" autocomplete="off"/>
@@ -57,7 +57,8 @@
               </div>
             </div>
             <div class="col-6">
-              <ul>
+              <ul class="infos">
+                <li id="feels-li">Feels like: <span id="feels-like"></span>°C</li>
                 <li id="humidity-li">Humidity: <span id="humidity"></span>%</li>
                 <li id="wind-li">Wind: <span id="wind"></span> km/h</li>
               </ul>

@@ -35,9 +35,12 @@ li::first-letter {
 }
 .themes-weather {
   padding: 20px;
-  border: 1px solid #343846;
+  border: 5px solid #343846;
   border-radius: 5px;
   background-color: #282a36;
+}
+.search {
+  padding: 10px;
 }
 .overview {
   margin-bottom: 20px;
@@ -52,8 +55,8 @@ li::first-letter {
 }
 .weather-temperature img {
   margin-right: 5px;
-  height: 74px;
-  width: 74px;
+  height: 100px;
+  width: 100px;
   margin-top: -25px;
 }
 .weather-temperature strong {
@@ -67,10 +70,13 @@ li::first-letter {
   top: -34px;
   color: #f1fb8c;
 }
+.infos {
+  padding-left: 20px;
+}
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
-  color: #86e3f4;
+  color: #70b7c8;
 }
 .weather-forecast-date {
   font-size: 16px;

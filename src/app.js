@@ -66,10 +66,11 @@ function getForecast(coordinates) {
 
 function dispalyHotTheme() {
   document.getElementById("themes-weather").style.backgroundColor = "#700000";
-  document.getElementById("themes-weather").style.border = "#700000";
+  document.getElementById("themes-weather").style.border = "#410000";
   document.getElementById("city").style.color = "#D1F1A8";
   document.getElementById("last-updated").style.color = "#EABCFF";
   document.getElementById("description").style.color = "#EABCFF";
+  document.getElementById("feels-li").style.color = "#EABCFF";
   document.getElementById("humidity-li").style.color = "#EABCFF";
   document.getElementById("wind-li").style.color = "#EABCFF";
   document.getElementById("temperature").style.color = "#FFC48F";
@@ -82,17 +83,32 @@ function dispalyColdTheme() {
   document.getElementById("city").style.color = "#FFAAAA";
   document.getElementById("last-updated").style.color = "#60FAFF";
   document.getElementById("description").style.color = "#60FAFF";
+  document.getElementById("feels-li").style.color = "#60FAFF";
   document.getElementById("humidity-li").style.color = "#60FAFF";
   document.getElementById("wind-li").style.color = "#60FAFF";
   document.getElementById("temperature").style.color = "#B8BCF0";
   document.getElementById("units").style.color = "#B8BCF0";
   document.getElementById("forecast").style.color = "#67AE9E";
 }
+function dispalyDraculaTheme() {
+  document.getElementById("themes-weather").style.backgroundColor = "#343846";
+  document.getElementById("themes-weather").style.border = "#282a36";
+  document.getElementById("city").style.color = "#ff7ac6";
+  document.getElementById("last-updated").style.color = "#b891f3";
+  document.getElementById("description").style.color = "#b891f3";
+  document.getElementById("feels-li").style.color = "#b891f3";
+  document.getElementById("humidity-li").style.color = "#b891f3";
+  document.getElementById("wind-li").style.color = "#b891f3";
+  document.getElementById("temperature").style.color = "#f1fb8c";
+  document.getElementById("units").style.color = "#f1fb8c";
+  document.getElementById("forecast").style.color = "#70b7c8";
+}
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
+  let feelsLikeElement = document.querySelector("#feels-like");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
@@ -101,6 +117,7 @@ function displayTemperature(response) {
   temperatureElement.innerHTML = Math.round(celciusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
@@ -110,15 +127,15 @@ function displayTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
   getForecast(response.data.coord);
-
   if (celciusTemperature > 25) {
     dispalyHotTheme();
-  } else if (celciusTemperature < 10) {
+  } else if (celciusTemperature < 5) {
     dispalyColdTheme();
   } else {
-    return false;
+    dispalyDraculaTheme();
   }
 }
+
 function search(city) {
   let apiKey = "c6cc476a27f0a0763f5b1cf675c13355";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
